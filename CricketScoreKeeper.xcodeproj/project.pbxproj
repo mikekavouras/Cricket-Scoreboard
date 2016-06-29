@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D680C151D247C6100B5067D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D680C141D247C6100B5067D /* AppDelegate.swift */; };
+		8D680C171D247C6100B5067D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D680C161D247C6100B5067D /* ViewController.swift */; };
+		8D680C1A1D247C6100B5067D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D680C181D247C6100B5067D /* Main.storyboard */; };
+		8D680C1C1D247C6100B5067D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D680C1B1D247C6100B5067D /* Assets.xcassets */; };
+		8D680C1F1D247C6100B5067D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D680C1D1D247C6100B5067D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8D680C111D247C6100B5067D /* CricketScoreKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CricketScoreKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D680C141D247C6100B5067D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8D680C161D247C6100B5067D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D680C191D247C6100B5067D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D680C1B1D247C6100B5067D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D680C1E1D247C6100B5067D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8D680C201D247C6100B5067D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D680C0E1D247C6100B5067D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D680C081D247C6100B5067D = {
+			isa = PBXGroup;
+			children = (
+				8D680C131D247C6100B5067D /* CricketScoreKeeper */,
+				8D680C121D247C6100B5067D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D680C121D247C6100B5067D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D680C111D247C6100B5067D /* CricketScoreKeeper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D680C131D247C6100B5067D /* CricketScoreKeeper */ = {
+			isa = PBXGroup;
+			children = (
+				8D680C141D247C6100B5067D /* AppDelegate.swift */,
+				8D680C161D247C6100B5067D /* ViewController.swift */,
+				8D680C181D247C6100B5067D /* Main.storyboard */,
+				8D680C1B1D247C6100B5067D /* Assets.xcassets */,
+				8D680C1D1D247C6100B5067D /* LaunchScreen.storyboard */,
+				8D680C201D247C6100B5067D /* Info.plist */,
+			);
+			path = CricketScoreKeeper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D680C101D247C6100B5067D /* CricketScoreKeeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D680C231D247C6100B5067D /* Build configuration list for PBXNativeTarget "CricketScoreKeeper" */;
+			buildPhases = (
+				8D680C0D1D247C6100B5067D /* Sources */,
+				8D680C0E1D247C6100B5067D /* Frameworks */,
+				8D680C0F1D247C6100B5067D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CricketScoreKeeper;
+			productName = CricketScoreKeeper;
+			productReference = 8D680C111D247C6100B5067D /* CricketScoreKeeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D680C091D247C6100B5067D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Mike Kavouras";
+				TargetAttributes = {
+					8D680C101D247C6100B5067D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 8D680C0C1D247C6100B5067D /* Build configuration list for PBXProject "CricketScoreKeeper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8D680C081D247C6100B5067D;
+			productRefGroup = 8D680C121D247C6100B5067D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D680C101D247C6100B5067D /* CricketScoreKeeper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D680C0F1D247C6100B5067D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D680C1F1D247C6100B5067D /* LaunchScreen.storyboard in Resources */,
+				8D680C1C1D247C6100B5067D /* Assets.xcassets in Resources */,
+				8D680C1A1D247C6100B5067D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D680C0D1D247C6100B5067D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D680C171D247C6100B5067D /* ViewController.swift in Sources */,
+				8D680C151D247C6100B5067D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8D680C181D247C6100B5067D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D680C191D247C6100B5067D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8D680C1D1D247C6100B5067D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D680C1E1D247C6100B5067D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8D680C211D247C6100B5067D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8D680C221D247C6100B5067D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D680C241D247C6100B5067D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CricketScoreKeeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.CricketScoreKeeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8D680C251D247C6100B5067D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CricketScoreKeeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.CricketScoreKeeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D680C0C1D247C6100B5067D /* Build configuration list for PBXProject "CricketScoreKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D680C211D247C6100B5067D /* Debug */,
+				8D680C221D247C6100B5067D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D680C231D247C6100B5067D /* Build configuration list for PBXNativeTarget "CricketScoreKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D680C241D247C6100B5067D /* Debug */,
+				8D680C251D247C6100B5067D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D680C091D247C6100B5067D /* Project object */;
+}
