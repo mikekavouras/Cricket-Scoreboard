@@ -10,9 +10,12 @@ import Foundation
 
 class GameStateManager {
     let game: Game
+    
     lazy var gameController: GameViewController = {
         return GameViewController(game: self.game)
     }()
+    
+    var onGameEndedListener: ((Player) -> Void)?
     
     init(game: Game) {
         self.game = game
@@ -30,7 +33,7 @@ class GameStateManager {
         }
         
         if player.board.isFull && player.score >= otherPlayer.score {
-            print("player has wonnnnnn")
+            onGameEndedListener?(player)
         }
     }
     

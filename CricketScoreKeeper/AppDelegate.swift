@@ -15,18 +15,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = UIColor.whiteColor()
+        window?.makeKeyAndVisible()
+        
+        startNewGame()
+        
+        return true
+    }
+    
+    func startNewGame() {
+        window?.rootViewController = newGameViewController()
+    }
+    
+    private func newGameViewController() -> UIViewController {
         let player1 = Player()
         let player2 = Player()
         let game = Game(players: player1, player2)
         let stateManager = GameStateManager(game: game)
         let viewController = stateManager.gameController
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.backgroundColor = UIColor.whiteColor()
-        window?.makeKeyAndVisible()
-        window?.rootViewController = viewController
-        
-        return true
+        viewController.shouldBeginNewGameHandler = startNewGame
+        stateManager.onGameEndedListener = viewController.displayWinner
+        return viewController
     }
 
 }
