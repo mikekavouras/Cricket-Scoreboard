@@ -133,11 +133,12 @@
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hK4-tE-OGP">
                     <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="yPj-Dp-28F"/>
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-mj-den" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
@@ -208,6 +209,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="nameTextField" destination="hK4-tE-OGP" id="tIK-30-x0i"/>
                 <outlet property="scoreLabel" destination="Hqa-Wn-c5y" id="ACE-er-bQa"/>
                 <outletCollection property="scoreButtons" destination="2Qk-mj-den" collectionClass="NSMutableArray" id="PZe-Bw-Pek"/>
                 <outletCollection property="scoreButtons" destination="cEU-R4-c3x" collectionClass="NSMutableArray" id="Gkm-qu-4P8"/>

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class GameViewController: UIViewController, UITextFieldDelegate {
+class GameViewController: UIViewController {
     
     let game: Game!
     
@@ -41,7 +41,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         scoreReferenceView.snp_makeConstraints { (make) in
             make.width.equalTo(70)
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view)
+            make.top.equalTo(self.view).offset(20.0)
             make.bottom.equalTo(self.view)
         }
         
@@ -66,15 +66,9 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         player2GameView.player = player2
     }
     
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
+    
 }
 

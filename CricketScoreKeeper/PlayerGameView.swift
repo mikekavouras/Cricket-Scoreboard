@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PlayerGameView: UIView, SwipeableButtonDelegate {
+class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
     
     static let NibName = "PlayerGameView"
+    
+    @IBOutlet weak var nameTextField: UITextField!
     
     class func xibInstance() -> PlayerGameView {
         return NSBundle.mainBundle().loadNibNamed(NibName, owner: self, options: nil)[0] as! PlayerGameView
@@ -24,6 +26,7 @@ class PlayerGameView: UIView, SwipeableButtonDelegate {
         super.awakeFromNib()
         
         scoreButtons.forEach { $0.delegate = self }
+        nameTextField.delegate = self
     }
 
     @IBAction func scoreButtonTapped(sender: ScoreButton) {
@@ -47,6 +50,13 @@ class PlayerGameView: UIView, SwipeableButtonDelegate {
             updateScoreButton(button, forState: state)
         }
         scoreLabel.text = "\(player.score)"
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
