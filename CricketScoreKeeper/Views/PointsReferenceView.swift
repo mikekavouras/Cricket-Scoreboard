@@ -8,11 +8,6 @@
 
 import UIKit
 
-class PointsReferenceView: UIView {
-    
-    static let NibName = "PointsReferenceView"
-    
-    class func xibInstance() -> PointsReferenceView {
-        return Bundle.main.loadNibNamed(NibName, owner: self, options: nil)![0] as! PointsReferenceView
-    }
+class PointsReferenceView: UIView, NibInitializable {
+    static var nibName: String = "PointsReferenceView"
 }

@@ -11,10 +11,6 @@ import Foundation
 class GameStateManager {
     let game: Game
     
-    lazy var gameController: GameViewController = {
-        return GameViewController(game: self.game)
-    }()
-    
     var onGameEndedListener: ((Player) -> Void)?
     
     init(game: Game) {
@@ -23,8 +19,13 @@ class GameStateManager {
     }
     
     private func addPlayer(_ player: Player) {
-        player.shouldCommitMove = shouldCommitMoveHandler
-        player.validateWin = checkWinValidator
+        player.shouldCommitMove = { [weak self] (p: Player, move: Move) -> Bool in
+            self?.shouldCommitMoveHandler(p, move: move) ?? false
+        }
+        player.validateWin = { [weak self] player in
+            self?.checkWinValidator(player)
+            print(player)
+        }
     }
     
     private func checkWinValidator(_ player: Player) {

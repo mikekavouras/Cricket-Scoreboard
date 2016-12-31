@@ -11,11 +11,11 @@ import SnapKit
 
 class GameViewController: UIViewController {
     
-    let game: Game!
+    private let stateManager: GameStateManager!
     var shouldBeginNewGameHandler: (() -> Void)?
     
-    init(game: Game) {
-        self.game = game
+    init(stateManager: GameStateManager) {
+        self.stateManager = stateManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,16 +50,16 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func buildPlayerViews() {
-        let player1GameView = Player.gameView
-        let player2GameView = Player.gameView
-        let scoreReferenceView = PointsReferenceView.xibInstance()
+        let player1GameView = PlayerGameView.initFromNib()
+        let player2GameView = PlayerGameView.initFromNib()
+        let scoreReferenceView = PointsReferenceView.initFromNib()
         
-        view.addSubview(scoreReferenceView)
         view.addSubview(player1GameView)
         view.addSubview(player2GameView)
+        view.addSubview(scoreReferenceView)
         
         scoreReferenceView.snp.makeConstraints { make in
-            make.width.equalTo(70)
+            make.width.equalTo(90)
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.view).offset(28.0)
             make.bottom.equalTo(self.view)
@@ -79,8 +79,8 @@ class GameViewController: UIViewController {
             make.left.equalTo(scoreReferenceView.snp.right)
         }
         
-        guard let player1 = game.players.first,
-            let player2 = game.players.last else { return }
+        guard let player1 = stateManager.game.players.first,
+            let player2 = stateManager.game.players.last else { return }
         
         player1GameView.player = player1
         player2GameView.player = player2

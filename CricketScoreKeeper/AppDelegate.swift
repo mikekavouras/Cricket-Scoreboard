@@ -32,10 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let player1 = Player()
         let player2 = Player()
         let game = Game(players: player1, player2)
+        
         let stateManager = GameStateManager(game: game)
-        let viewController = stateManager.gameController
-        viewController.shouldBeginNewGameHandler = startNewGame
-        stateManager.onGameEndedListener = viewController.displayWinner
+        let viewController = GameViewController(stateManager: stateManager)
+        viewController.shouldBeginNewGameHandler = { [weak self] in
+            self?.startNewGame()
+        }
+//        stateManager.onGameEndedListener = viewController.displayWinner
+        
         return viewController
     }
 
