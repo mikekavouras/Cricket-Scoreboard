@@ -59,22 +59,28 @@ class PlayerGameView: UIView, NibInitializable {
         button.setTitle(state.visual(), for: UIControlState())
     }
     
-    fileprivate func showScoreChangedUI(direction: MoveDirection, button: UIButton) {
-        let goodEmoji = ["😎", "😝", "👍", "🙌", "💪", "✨", "🏅"]
-        let badEmoji = ["😫", "👎", "🙈", "😵"]
-        let emoji = direction == .add ? goodEmoji : badEmoji
-        
+    fileprivate func showScoreChangedUI(direction: MoveDirection, button: ScoreButton) {
         let label = UILabel(frame: CGRect.zero)
-        let randomIndex = Int(arc4random_uniform(UInt32(emoji.count)))
+        let symbol = direction == .add ? "+" : "-"
         
         addSubview(label)
-        label.textColor = UIColor.yellow
-        label.font = UIFont.systemFont(ofSize: 32.0)
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "Chalkboard SE", size: 28.0)
         label.textAlignment = .center
-        label.frame = button.frame
-        label.text = emoji[randomIndex]
+        label.frame = scoreLabel.frame
+        label.frame.origin.y -= 60
+        label.text = "\(symbol) \(button.value)"
         
-        UIView.animate(withDuration: 1.2, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.scoreLabel.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }) { done in
+            UIView.animate(withDuration: 0.2) {
+                self.scoreLabel.transform = CGAffineTransform.identity
+            }
+        }
+        
+        UIView.animate(withDuration: 1.2, animations: {
+//            self.scoreLabel.transform = CGAffineTransform()
             label.frame.origin.y -= 100
             label.alpha = 0.0
         }) { done in

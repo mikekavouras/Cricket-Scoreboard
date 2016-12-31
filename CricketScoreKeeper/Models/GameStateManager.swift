@@ -12,7 +12,6 @@ protocol GameStateManagerDelegate: class {
     func gameStateDidChange(manager: GameStateManager)
 }
 
-
 class GameStateManager {
     let game: Game
     
