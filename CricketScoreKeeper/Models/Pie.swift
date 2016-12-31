@@ -8,6 +8,22 @@
 
 import Foundation
 
+func >(lhs: PieState, rhs: PieState) -> Bool {
+    if lhs == rhs { return false }
+    
+    switch lhs {
+    case .zero: return false
+    case .one: return rhs == .zero
+    case .two: return rhs != .three
+    case .three: return true
+    }
+}
+
+func <(lhs: PieState, rhs: PieState) -> Bool {
+    if lhs == rhs { return false }
+    return  !(lhs > rhs)
+}
+
 enum PieState {
     case zero
     case one

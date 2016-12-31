@@ -19,6 +19,11 @@ func ==(lhs: Player, rhs: Player) -> Bool {
     return lhs.uid == rhs.uid
 }
 
+protocol PlayerDelegate: class {
+    func playerShouldCommitMove(_ player: Player, move: Move) -> Bool
+    func playerDidCommitMove(_ player: Player, move: Move)
+}
+
 class Player: Equatable {
     static var nextUid = 0
     static func generateUid() -> Int {
@@ -29,8 +34,9 @@ class Player: Equatable {
     let uid: Int
     var board = Board()
     var score: Int { return board.score() }
-    var shouldCommitMove: ((Player, Move) -> Bool)!
     var validateWin: ((Player) -> Void)!
+    
+    weak var delegate: PlayerDelegate?
     
     class var gameView: PlayerGameView {
         let view = PlayerGameView.initFromNib()
@@ -43,8 +49,9 @@ class Player: Equatable {
     
     func hit(_ value: Int) {
         let move: Move = (direction: .add, value: value)
-        if shouldCommitMove(self, move) {
+        if delegate?.playerShouldCommitMove(self, move: move) == true {
             board = board.hit(value)
+            delegate?.playerDidCommitMove(self, move: move)
         }
         
         validateWin(self)
@@ -52,8 +59,9 @@ class Player: Equatable {
     
     func unhit(_ value: Int) {
         let move: Move = (direction: .subtract, value: value)
-        if shouldCommitMove(self, move) {
+        if delegate?.playerShouldCommitMove(self, move: move) == true {
             board = board.unhit(value)
+            delegate?.playerDidCommitMove(self, move: move)
         }
     }
     

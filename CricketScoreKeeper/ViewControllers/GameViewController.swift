@@ -13,10 +13,12 @@ class GameViewController: UIViewController {
     
     private let stateManager: GameStateManager!
     var shouldBeginNewGameHandler: (() -> Void)?
+    fileprivate let scoreReferenceView = PointsReferenceView(frame: .zero)
     
     init(stateManager: GameStateManager) {
         self.stateManager = stateManager
         super.init(nibName: nil, bundle: nil)
+        stateManager.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,7 +54,6 @@ class GameViewController: UIViewController {
     fileprivate func buildPlayerViews() {
         let player1GameView = PlayerGameView.initFromNib()
         let player2GameView = PlayerGameView.initFromNib()
-        let scoreReferenceView = PointsReferenceView.initFromNib()
         
         view.addSubview(player1GameView)
         view.addSubview(player2GameView)
@@ -60,22 +61,22 @@ class GameViewController: UIViewController {
         
         scoreReferenceView.snp.makeConstraints { make in
             make.width.equalTo(90)
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view).offset(28.0)
-            make.bottom.equalTo(self.view)
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(28.0)
+            make.bottom.equalTo(view)
         }
         
         player1GameView.snp.makeConstraints { make in
-            make.left.equalTo(self.view).offset(16.0)
-            make.top.equalTo(self.view).offset(28.0)
-            make.bottom.equalTo(self.view)
+            make.left.equalTo(view).offset(16.0)
+            make.top.equalTo(view).offset(28.0)
+            make.bottom.equalTo(view)
             make.right.equalTo(scoreReferenceView.snp.left)
         }
         
         player2GameView.snp.makeConstraints { make in
-            make.right.equalTo(self.view).offset(-16.0)
-            make.top.equalTo(self.view).offset(28.0)
-            make.bottom.equalTo(self.view)
+            make.right.equalTo(view).offset(-16.0)
+            make.top.equalTo(view).offset(28.0)
+            make.bottom.equalTo(view)
             make.left.equalTo(scoreReferenceView.snp.right)
         }
         
@@ -92,3 +93,11 @@ class GameViewController: UIViewController {
     
 }
 
+
+// MARK: - Game state manager delegate
+
+extension GameViewController: GameStateManagerDelegate {
+    func gameStateDidChange(manager: GameStateManager) {
+        scoreReferenceView.render(manager.competitivePieStates)
+    }
+}

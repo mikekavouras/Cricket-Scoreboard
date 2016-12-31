@@ -8,24 +8,40 @@
 
 import Foundation
 
+protocol GameStateManagerDelegate: class {
+    func gameStateDidChange(manager: GameStateManager)
+}
+
+
 class GameStateManager {
     let game: Game
     
     var onGameEndedListener: ((Player) -> Void)?
+    weak var delegate: GameStateManagerDelegate?
     
     init(game: Game) {
         self.game = game
-        game.players.forEach { addPlayer($0) }
+        game.players.forEach { [weak self] player in
+            player.delegate = self
+            player.validateWin = { player in
+                self?.checkWinValidator(player)
+            }
+        }
     }
     
-    private func addPlayer(_ player: Player) {
-        player.shouldCommitMove = { [weak self] (p: Player, move: Move) -> Bool in
-            self?.shouldCommitMoveHandler(p, move: move) ?? false
+    var competitivePieStates: [Int:(Bool, Bool)] {
+        guard let player1 = game.players.first,
+            let player2 = game.players.last else { return [:] }
+        
+        let pies = (player1.board.pies, player2.board.pies)
+        var value: [Int: (Bool, Bool)] = [:]
+        for (index, pie) in pies.0.enumerated() {
+            let leftIsGreater = pie.state > pies.1[index].state
+            let rightIsGreater = pie.state < pies.1[index].state
+            value[pie.value] = (leftIsGreater, rightIsGreater)
         }
-        player.validateWin = { [weak self] player in
-            self?.checkWinValidator(player)
-            print(player)
-        }
+        
+        return value
     }
     
     private func checkWinValidator(_ player: Player) {
@@ -38,17 +54,13 @@ class GameStateManager {
         }
     }
     
-    private func shouldCommitMoveHandler(_ player: Player, move: Move) -> Bool {
+    fileprivate func shouldCommitMoveHandler(_ player: Player, move: Move) -> Bool {
         if move.direction == .add {
             guard let otherPlayer = (game.players.filter { $0 != player }.first) else {
                 return false
             }
             
-            if !player.hasClosed(move.value) {
-                return true
-            }
-            
-            if !otherPlayer.hasClosed(move.value) {
+            if !player.hasClosed(move.value) || !otherPlayer.hasClosed(move.value) {
                 return true
             }
             
@@ -56,5 +68,15 @@ class GameStateManager {
         } else {
             return player.board.stateForPie(move.value) != .zero
         }
+    }
+}
+
+extension GameStateManager: PlayerDelegate {
+    func playerShouldCommitMove(_ player: Player, move: Move) -> Bool {
+        return shouldCommitMoveHandler(player, move: move)
+    }
+    
+    func playerDidCommitMove(_ player: Player, move: Move) {
+        delegate?.gameStateDidChange(manager: self)
     }
 }

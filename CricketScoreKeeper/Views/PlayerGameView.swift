@@ -41,9 +41,13 @@ class PlayerGameView: UIView, NibInitializable {
         let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
-        button.backgroundColor = UIColor.black.withAlphaComponent(0.15)
+        let isClosed = player.hasClosed(button.value)
+        let darkColor: UIColor = isClosed ? UIColor.black.withAlphaComponent(0.35) : UIColor.black.withAlphaComponent(0.15)
+        let resolveColor: UIColor = isClosed ? UIColor.black.withAlphaComponent(0.15) : UIColor.darkGreen
+        
+        button.backgroundColor = darkColor
         UIView.animate(withDuration: 0.2) {
-            button.backgroundColor = .darkGreen
+            button.backgroundColor = resolveColor
         }
         
         if scoreChanged {
@@ -97,9 +101,12 @@ extension PlayerGameView: SwipeableButtonDelegate {
         let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
+        let isClosed = player.hasClosed(button.value)
+        let resolveColor: UIColor = isClosed ? UIColor.black.withAlphaComponent(0.15) : UIColor.darkGreen
+        
         button.backgroundColor = UIColor.negative
         UIView.animate(withDuration: 0.3) {
-            button.backgroundColor = .darkGreen
+            button.backgroundColor = resolveColor
         }
         
         if scoreChanged {
