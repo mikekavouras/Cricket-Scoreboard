@@ -14,145 +14,6 @@
             <rect key="frame" x="0.0" y="0.0" width="287" height="641"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbp-ub-lD0" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="205" width="287" height="66"/>
-                    <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="18"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="CGo-Iy-u8r"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-Eg-O3k" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="279" width="287" height="66"/>
-                    <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="17"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="z4V-Fo-wME"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNQ-oS-2QT" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="352.5" width="287" height="66"/>
-                    <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="16"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="C8Y-85-UlQ"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-l3-JAf" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="426.5" width="287" height="66.5"/>
-                    <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="15"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="6cd-md-6wp"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbv-yv-mNB" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="501" width="287" height="66"/>
-                    <color key="backgroundColor" red="0.20784313725490194" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="25"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="YbK-ml-8el"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-R4-c3x" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="130" width="287" height="66.5"/>
-                    <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="19"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="c5G-pj-YCX"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-mj-den" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="56" width="287" height="66"/>
-                    <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                    <state key="normal">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                            <integer key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="goa-ck-naj"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Wn-c5y">
-                    <rect key="frame" x="0.0" y="575" width="287" height="66"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Team Name" placeholder="Enter name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hK4-tE-OGP">
                     <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,64 +24,209 @@
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                 </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZj-P6-EeF">
+                    <rect key="frame" x="0.0" y="40" width="287" height="541"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-mj-den" userLabel="20" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="20" width="287" height="67.5"/>
+                            <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="goa-ck-naj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-R4-c3x" userLabel="19" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="95" width="287" height="67.5"/>
+                            <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="19"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="c5G-pj-YCX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbp-ub-lD0" userLabel="18" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="171" width="287" height="67.5"/>
+                            <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="CGo-Iy-u8r"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-Eg-O3k" userLabel="17" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="246.5" width="287" height="68"/>
+                            <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="17"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="z4V-Fo-wME"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNQ-oS-2QT" userLabel="16" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="322.5" width="287" height="67.5"/>
+                            <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="C8Y-85-UlQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-l3-JAf" userLabel="15" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="398" width="287" height="67.5"/>
+                            <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="6cd-md-6wp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbv-yv-mNB" userLabel="Bull" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="473.5" width="287" height="67.5"/>
+                            <color key="backgroundColor" red="0.20784313725490194" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <integer key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="YbK-ml-8el"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jbv-yv-mNB" secondAttribute="trailing" id="0QX-ET-3nZ"/>
+                        <constraint firstItem="cEU-R4-c3x" firstAttribute="height" secondItem="bbp-ub-lD0" secondAttribute="height" id="3o0-YI-MjR"/>
+                        <constraint firstItem="0fB-l3-JAf" firstAttribute="height" secondItem="jbv-yv-mNB" secondAttribute="height" id="4I6-1z-TDu"/>
+                        <constraint firstItem="0fB-l3-JAf" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="508-w9-cYA"/>
+                        <constraint firstItem="2Qk-mj-den" firstAttribute="height" secondItem="cEU-R4-c3x" secondAttribute="height" id="5br-MV-6NI"/>
+                        <constraint firstItem="jbv-yv-mNB" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="6RP-d8-nwF"/>
+                        <constraint firstAttribute="trailing" secondItem="bbp-ub-lD0" secondAttribute="trailing" id="8GD-UJ-4go"/>
+                        <constraint firstItem="YNQ-oS-2QT" firstAttribute="height" secondItem="0fB-l3-JAf" secondAttribute="height" id="8fC-8G-emn"/>
+                        <constraint firstAttribute="bottom" secondItem="jbv-yv-mNB" secondAttribute="bottom" id="DXc-R9-Tcr"/>
+                        <constraint firstItem="DIK-Eg-O3k" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="EkR-DK-RSN"/>
+                        <constraint firstItem="0fB-l3-JAf" firstAttribute="top" secondItem="YNQ-oS-2QT" secondAttribute="bottom" constant="8" id="TIb-ZT-dVK"/>
+                        <constraint firstItem="DIK-Eg-O3k" firstAttribute="height" secondItem="YNQ-oS-2QT" secondAttribute="height" id="U9y-fm-gqD"/>
+                        <constraint firstAttribute="trailing" secondItem="DIK-Eg-O3k" secondAttribute="trailing" id="UEc-qj-4bw"/>
+                        <constraint firstItem="DIK-Eg-O3k" firstAttribute="top" secondItem="bbp-ub-lD0" secondAttribute="bottom" constant="8" id="Y3P-q4-uyU"/>
+                        <constraint firstItem="2Qk-mj-den" firstAttribute="top" secondItem="sZj-P6-EeF" secondAttribute="top" constant="20" id="Yyg-eV-Rsq"/>
+                        <constraint firstItem="bbp-ub-lD0" firstAttribute="height" secondItem="DIK-Eg-O3k" secondAttribute="height" id="ZXu-Sc-HxZ"/>
+                        <constraint firstItem="bbp-ub-lD0" firstAttribute="top" secondItem="cEU-R4-c3x" secondAttribute="bottom" constant="8" id="aGt-ya-ghe"/>
+                        <constraint firstAttribute="trailing" secondItem="cEU-R4-c3x" secondAttribute="trailing" id="aZh-hf-UFu"/>
+                        <constraint firstItem="2Qk-mj-den" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="flF-QD-xzj"/>
+                        <constraint firstItem="cEU-R4-c3x" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="jpS-I0-Bbo"/>
+                        <constraint firstItem="bbp-ub-lD0" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="krt-1Z-AlT"/>
+                        <constraint firstItem="YNQ-oS-2QT" firstAttribute="leading" secondItem="sZj-P6-EeF" secondAttribute="leading" id="kx6-lm-XE2"/>
+                        <constraint firstItem="jbv-yv-mNB" firstAttribute="top" secondItem="0fB-l3-JAf" secondAttribute="bottom" constant="8" id="nJ6-3w-Ck0"/>
+                        <constraint firstAttribute="trailing" secondItem="2Qk-mj-den" secondAttribute="trailing" id="roZ-KN-qhy"/>
+                        <constraint firstItem="cEU-R4-c3x" firstAttribute="top" secondItem="2Qk-mj-den" secondAttribute="bottom" constant="8" id="uGI-dn-NvC"/>
+                        <constraint firstAttribute="trailing" secondItem="YNQ-oS-2QT" secondAttribute="trailing" id="uO7-l1-d9m"/>
+                        <constraint firstItem="YNQ-oS-2QT" firstAttribute="top" secondItem="DIK-Eg-O3k" secondAttribute="bottom" constant="8" id="vOJ-LD-0Ic"/>
+                        <constraint firstAttribute="trailing" secondItem="0fB-l3-JAf" secondAttribute="trailing" id="xTe-jZ-GPq"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Wn-c5y">
+                    <rect key="frame" x="0.0" y="581" width="287" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="xkt-dL-A78"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.2200414037" green="0.51432291669999997" blue="0.22957812690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bbp-ub-lD0" firstAttribute="top" secondItem="cEU-R4-c3x" secondAttribute="bottom" constant="8" id="0Qi-Vq-xyV"/>
-                <constraint firstAttribute="trailing" secondItem="YNQ-oS-2QT" secondAttribute="trailing" id="1Ba-fg-Snb"/>
                 <constraint firstItem="Hqa-Wn-c5y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Gr-f4-kgO"/>
-                <constraint firstItem="cEU-R4-c3x" firstAttribute="height" secondItem="bbp-ub-lD0" secondAttribute="height" id="9Su-jF-bHt"/>
-                <constraint firstItem="bbp-ub-lD0" firstAttribute="top" secondItem="cEU-R4-c3x" secondAttribute="bottom" constant="15" id="CaU-iM-Hde"/>
-                <constraint firstItem="DIK-Eg-O3k" firstAttribute="height" secondItem="YNQ-oS-2QT" secondAttribute="height" id="Dji-pY-vOQ"/>
+                <constraint firstAttribute="trailing" secondItem="sZj-P6-EeF" secondAttribute="trailing" id="3MB-xk-Dmg"/>
                 <constraint firstAttribute="bottom" secondItem="Hqa-Wn-c5y" secondAttribute="bottom" id="EoQ-mv-N5g"/>
-                <constraint firstItem="DIK-Eg-O3k" firstAttribute="top" secondItem="bbp-ub-lD0" secondAttribute="bottom" constant="8" id="GBs-b7-UFv"/>
-                <constraint firstAttribute="trailing" secondItem="0fB-l3-JAf" secondAttribute="trailing" id="GIb-Gn-XsG"/>
-                <constraint firstItem="2Qk-mj-den" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GXv-zy-ZTf"/>
-                <constraint firstItem="cEU-R4-c3x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GzG-xB-L0f"/>
-                <constraint firstAttribute="trailing" secondItem="DIK-Eg-O3k" secondAttribute="trailing" id="IFS-zd-8M4"/>
-                <constraint firstItem="2Qk-mj-den" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Iog-eW-VNc"/>
-                <constraint firstAttribute="trailing" secondItem="bbp-ub-lD0" secondAttribute="trailing" id="Keo-wU-HOK"/>
-                <constraint firstItem="jbv-yv-mNB" firstAttribute="top" secondItem="0fB-l3-JAf" secondAttribute="bottom" constant="8" id="LHC-ny-NeA"/>
-                <constraint firstItem="YNQ-oS-2QT" firstAttribute="height" secondItem="0fB-l3-JAf" secondAttribute="height" id="LPe-jB-5bN"/>
-                <constraint firstItem="Hqa-Wn-c5y" firstAttribute="top" secondItem="jbv-yv-mNB" secondAttribute="bottom" constant="8" id="Rs7-x3-AAo"/>
                 <constraint firstItem="hK4-tE-OGP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VHr-1u-rLt"/>
-                <constraint firstItem="bbp-ub-lD0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vc4-rH-7nF"/>
-                <constraint firstItem="jbv-yv-mNB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WSp-hp-iML"/>
-                <constraint firstAttribute="trailing" secondItem="cEU-R4-c3x" secondAttribute="trailing" id="Wma-KQ-vcy"/>
-                <constraint firstItem="DIK-Eg-O3k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XuD-hc-Bao"/>
-                <constraint firstItem="YNQ-oS-2QT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YRo-Gg-8j6"/>
-                <constraint firstAttribute="trailing" secondItem="jbv-yv-mNB" secondAttribute="trailing" id="ePT-yD-uaS"/>
-                <constraint firstItem="cEU-R4-c3x" firstAttribute="top" secondItem="2Qk-mj-den" secondAttribute="bottom" constant="8" id="eVJ-YB-PjT"/>
+                <constraint firstItem="sZj-P6-EeF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eas-Yf-Yid"/>
                 <constraint firstItem="hK4-tE-OGP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fiW-kv-uc9"/>
-                <constraint firstItem="2Qk-mj-den" firstAttribute="top" secondItem="hK4-tE-OGP" secondAttribute="bottom" constant="16" id="fy6-7a-sXG"/>
-                <constraint firstItem="0fB-l3-JAf" firstAttribute="top" secondItem="YNQ-oS-2QT" secondAttribute="bottom" constant="8" id="hd1-96-dVr"/>
+                <constraint firstItem="Hqa-Wn-c5y" firstAttribute="top" secondItem="sZj-P6-EeF" secondAttribute="bottom" id="h1J-sF-Suj"/>
                 <constraint firstAttribute="trailing" secondItem="hK4-tE-OGP" secondAttribute="trailing" id="hhQ-b4-BZ8"/>
-                <constraint firstItem="0fB-l3-JAf" firstAttribute="height" secondItem="jbv-yv-mNB" secondAttribute="height" id="nHo-RV-CFv"/>
-                <constraint firstItem="0fB-l3-JAf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sus-EG-fM6"/>
-                <constraint firstItem="bbp-ub-lD0" firstAttribute="height" secondItem="DIK-Eg-O3k" secondAttribute="height" id="vpg-eq-mAL"/>
+                <constraint firstItem="sZj-P6-EeF" firstAttribute="top" secondItem="hK4-tE-OGP" secondAttribute="bottom" id="osJ-g0-WfL"/>
                 <constraint firstAttribute="trailing" secondItem="Hqa-Wn-c5y" secondAttribute="trailing" id="wvU-6K-Jyl"/>
-                <constraint firstAttribute="trailing" secondItem="2Qk-mj-den" secondAttribute="trailing" id="xIV-Q6-DXU"/>
-                <constraint firstItem="YNQ-oS-2QT" firstAttribute="top" secondItem="DIK-Eg-O3k" secondAttribute="bottom" constant="8" id="xvE-MK-o4r"/>
-                <constraint firstItem="2Qk-mj-den" firstAttribute="height" secondItem="cEU-R4-c3x" secondAttribute="height" id="y6k-Mb-NOm"/>
-                <constraint firstItem="jbv-yv-mNB" firstAttribute="height" secondItem="Hqa-Wn-c5y" secondAttribute="height" id="zc5-0q-wY9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="GXv-zy-ZTf"/>
-                    <exclude reference="CaU-iM-Hde"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="nameTextField" destination="hK4-tE-OGP" id="tIK-30-x0i"/>
                 <outlet property="scoreLabel" destination="Hqa-Wn-c5y" id="ACE-er-bQa"/>
-                <outletCollection property="scoreButtons" destination="2Qk-mj-den" collectionClass="NSMutableArray" id="PZe-Bw-Pek"/>
-                <outletCollection property="scoreButtons" destination="cEU-R4-c3x" collectionClass="NSMutableArray" id="Gkm-qu-4P8"/>
                 <outletCollection property="scoreButtons" destination="bbp-ub-lD0" collectionClass="NSMutableArray" id="pbJ-qd-4jY"/>
                 <outletCollection property="scoreButtons" destination="DIK-Eg-O3k" collectionClass="NSMutableArray" id="Njm-yZ-Fis"/>
                 <outletCollection property="scoreButtons" destination="YNQ-oS-2QT" collectionClass="NSMutableArray" id="Ynn-YH-QfT"/>
                 <outletCollection property="scoreButtons" destination="0fB-l3-JAf" collectionClass="NSMutableArray" id="zs0-ZP-J4F"/>
                 <outletCollection property="scoreButtons" destination="jbv-yv-mNB" collectionClass="NSMutableArray" id="5uB-tl-HLP"/>
+                <outletCollection property="scoreButtons" destination="cEU-R4-c3x" collectionClass="NSMutableArray" id="Gkm-qu-4P8"/>
+                <outletCollection property="scoreButtons" destination="2Qk-mj-den" collectionClass="NSMutableArray" id="PZe-Bw-Pek"/>
             </connections>
             <point key="canvasLocation" x="88.5" y="307.5"/>
         </view>
