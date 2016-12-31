@@ -31,14 +31,14 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
 
     @IBAction func scoreButtonTapped(_ button: ScoreButton) {
         player.hit(button.value)
-        if let state = player.board.stateForPie(button.value) {
-            updateScoreButton(button, forState: state)
-        }
+        guard let state = player.board.stateForPie(button.value) else { return }
+        
+        updateScoreButton(button, forState: state)
         let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
-        button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-        UIView.animate(withDuration: 0.3) {
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        UIView.animate(withDuration: 0.2) {
             button.backgroundColor = .darkGreen
         }
         

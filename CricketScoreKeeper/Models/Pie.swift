@@ -45,11 +45,11 @@ enum PieState {
         case .zero:
             return ""
         case .one:
-            return "I"
+            return "l"
         case .two:
-            return "II"
+            return "ll"
         case .three:
-            return "III"
+            return "lll"
         }
     }
 }
