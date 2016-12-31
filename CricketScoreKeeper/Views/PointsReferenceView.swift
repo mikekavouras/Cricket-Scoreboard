@@ -13,6 +13,6 @@ class PointsReferenceView: UIView {
     static let NibName = "PointsReferenceView"
     
     class func xibInstance() -> PointsReferenceView {
-        return NSBundle.mainBundle().loadNibNamed(NibName, owner: self, options: nil)[0] as! PointsReferenceView
+        return Bundle.main.loadNibNamed(NibName, owner: self, options: nil)![0] as! PointsReferenceView
     }
 }

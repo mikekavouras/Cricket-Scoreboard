@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CAB44BF60094126861177302D4F0AD5C"
+               BlueprintIdentifier = "633316A77910E5786705FFA55BACCC63"
                BuildableName = "Pods_CricketScoreKeeper.framework"
                BlueprintName = "Pods-CricketScoreKeeper"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CAB44BF60094126861177302D4F0AD5C"
+            BlueprintIdentifier = "633316A77910E5786705FFA55BACCC63"
             BuildableName = "Pods_CricketScoreKeeper.framework"
             BlueprintName = "Pods-CricketScoreKeeper"
             ReferencedContainer = "container:Pods.xcodeproj">

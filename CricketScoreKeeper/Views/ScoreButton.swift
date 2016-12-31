@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SwipeableButtonDelegate: class {
-    func handleSwipeForButton(button: SwipeableButton)
+    func handleSwipeForButton(_ button: SwipeableButton)
 }
 
 @IBDesignable
@@ -21,11 +21,11 @@ class SwipeableButton: UIButton {
         super.awakeFromNib()
         
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SwipeableButton.handleSwipeGesture(_:)))
-        swipeGesture.direction = .Left
+        swipeGesture.direction = .left
         addGestureRecognizer(swipeGesture)
     }
     
-    func handleSwipeGesture(gesture: UISwipeGestureRecognizer) {
+    func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
         print("override to handle swipe gesture")
     }
     
@@ -43,7 +43,7 @@ class ScoreButton: SwipeableButton {
         }
     }
     
-    override func handleSwipeGesture(gesture: UISwipeGestureRecognizer) {
+    override func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
         delegate?.handleSwipeForButton(self)
     }
 }

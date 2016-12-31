@@ -22,12 +22,12 @@ class GameStateManager {
         game.players.forEach { addPlayer($0) }
     }
     
-    func addPlayer(player: Player) {
+    func addPlayer(_ player: Player) {
         player.shouldCommitMove = shouldCommitMoveHandler
         player.validateWin = checkWinValidator
     }
     
-    func checkWinValidator(player: Player) {
+    func checkWinValidator(_ player: Player) {
         guard let otherPlayer = (game.players.filter { $0 != player }.first) else {
             return
         }
@@ -37,7 +37,7 @@ class GameStateManager {
         }
     }
     
-    func shouldCommitMoveHandler(player: Player, move: Move) -> Bool {
+    func shouldCommitMoveHandler(_ player: Player, move: Move) -> Bool {
         if move.direction == .add {
             guard let otherPlayer = (game.players.filter { $0 != player }.first) else {
                 return false

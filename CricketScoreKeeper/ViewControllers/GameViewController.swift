@@ -8,12 +8,10 @@
 
 import UIKit
 import SnapKit
-import SpriteKit
 
 class GameViewController: UIViewController {
     
     let game: Game!
-    let winnerView = SKView()
     var shouldBeginNewGameHandler: (() -> Void)?
     
     init(game: Game) {
@@ -28,30 +26,30 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.feltGreenColor()
+        view.backgroundColor = UIColor.feltGreen
         buildPlayerViews()
     }
     
-    func displayWinner(player: Player) {
+    func displayWinner(_ player: Player) {
         print("player wins!")
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            let noAction = UIAlertAction(title: "No", style: .Cancel, handler: nil)
-            let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { (_) in
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
                 self.shouldBeginNewGameHandler?()
             })
             
-            let alert = UIAlertController(title: "New Game?", message: "Do you want to start a new game?", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "New Game?", message: "Do you want to start a new game?", preferredStyle: .alert)
             alert.addAction(noAction)
             alert.addAction(yesAction)
             
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
     }
     
-    private func buildPlayerViews() {
+    fileprivate func buildPlayerViews() {
         let player1GameView = Player.gameView
         let player2GameView = Player.gameView
         let scoreReferenceView = PointsReferenceView.xibInstance()
@@ -60,36 +58,36 @@ class GameViewController: UIViewController {
         view.addSubview(player1GameView)
         view.addSubview(player2GameView)
         
-        scoreReferenceView.snp_makeConstraints { (make) in
+        scoreReferenceView.snp.makeConstraints { make in
             make.width.equalTo(70)
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.view).offset(28.0)
             make.bottom.equalTo(self.view)
         }
         
-        player1GameView.snp_makeConstraints { (make) in
+        player1GameView.snp.makeConstraints { make in
             make.left.equalTo(self.view).offset(16.0)
             make.top.equalTo(self.view).offset(28.0)
             make.bottom.equalTo(self.view)
-            make.right.equalTo(scoreReferenceView.snp_left)
+            make.right.equalTo(scoreReferenceView.snp.left)
         }
         
-        player2GameView.snp_makeConstraints { (make) in
+        player2GameView.snp.makeConstraints { make in
             make.right.equalTo(self.view).offset(-16.0)
             make.top.equalTo(self.view).offset(28.0)
             make.bottom.equalTo(self.view)
-            make.left.equalTo(scoreReferenceView.snp_right)
+            make.left.equalTo(scoreReferenceView.snp.right)
         }
         
         guard let player1 = game.players.first,
-            player2 = game.players.last else { return }
+            let player2 = game.players.last else { return }
         
         player1GameView.player = player1
         player2GameView.player = player2
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
 }

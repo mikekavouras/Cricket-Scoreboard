@@ -10,8 +10,12 @@ import UIKit
 
 extension UIColor {
     
-    class func feltGreenColor() -> UIColor {
+    class var feltGreen: UIColor {
         return UIColor(red: 56/255.0, green: 131/255.0, blue: 59/255.0, alpha: 1.0)
+    }
+    
+    class var darkGreen: UIColor {
+        return UIColor(red: 53/255.0, green: 123/255.0, blue: 56/255.0, alpha: 1.0)
     }
     
 }

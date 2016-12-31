@@ -15,7 +15,7 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     
     class func xibInstance() -> PlayerGameView {
-        return NSBundle.mainBundle().loadNibNamed(NibName, owner: self, options: nil)[0] as! PlayerGameView
+        return Bundle.main.loadNibNamed(NibName, owner: self, options: nil)![0] as! PlayerGameView
     }
     
     @IBOutlet var scoreButtons: [ScoreButton]!
@@ -29,32 +29,42 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
         nameTextField.delegate = self
     }
 
-    @IBAction func scoreButtonTapped(sender: ScoreButton) {
-        player.hit(sender.value)
-        if let state = player.board.stateForPie(sender.value) {
-            updateScoreButton(sender, forState: state)
+    @IBAction func scoreButtonTapped(_ button: ScoreButton) {
+        player.hit(button.value)
+        if let state = player.board.stateForPie(button.value) {
+            updateScoreButton(button, forState: state)
         }
         scoreLabel.text = "\(player.score)"
+        
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        UIView.animate(withDuration: 0.3) {
+            button.backgroundColor = .darkGreen
+        }
     }
     
-    private func updateScoreButton(button: UIButton, forState state: PieState) {
-        button.setTitle(state.visual(), forState: .Normal)
+    fileprivate func updateScoreButton(_ button: UIButton, forState state: PieState) {
+        button.setTitle(state.visual(), for: UIControlState())
     }
     
     // MARK: Swipeable button delegate
     
-    func handleSwipeForButton(button: SwipeableButton) {
+    func handleSwipeForButton(_ button: SwipeableButton) {
         guard let button = button as? ScoreButton else { return }
         player.unhit(button.value)
         if let state = player.board.stateForPie(button.value) {
             updateScoreButton(button, forState: state)
         }
         scoreLabel.text = "\(player.score)"
+        
+        button.backgroundColor = UIColor.red.withAlphaComponent(0.5)
+        UIView.animate(withDuration: 0.3) {
+            button.backgroundColor = .darkGreen
+        }
     }
     
     // MARK: UITextFieldDelegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

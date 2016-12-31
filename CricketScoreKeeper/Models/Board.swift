@@ -22,7 +22,7 @@ struct Board {
         self.pies = pies ?? Board.defaultPies
     }
     
-    func hit(value: Int) -> Board {
+    func hit(_ value: Int) -> Board {
         let np = pies.map { pie -> Pie in
             if pie.value == value {
                 return pie.advance()
@@ -34,7 +34,7 @@ struct Board {
         return Board(pies: np)
     }
     
-    func unhit(value: Int) -> Board {
+    func unhit(_ value: Int) -> Board {
         let np = pies.map { pie -> Pie in
             if pie.value == value {
                 return pie.revert()
@@ -46,7 +46,7 @@ struct Board {
         return Board(pies: np)
     }
     
-    func isClosed(value: Int) -> Bool {
+    func isClosed(_ value: Int) -> Bool {
         guard let pie = (pies.filter { $0.value == value }).first else { return false }
         return pie.state == .three
     }
@@ -56,7 +56,7 @@ struct Board {
     }
     
     
-    func stateForPie(value: Int) -> PieState? {
+    func stateForPie(_ value: Int) -> PieState? {
         guard let pie = (pies.filter { $0.value == value }).first else { return nil }
         return pie.state
     }

@@ -41,7 +41,7 @@ class Player: Equatable {
         uid = Player.generateUid()
     }
     
-    func hit(value: Int) {
+    func hit(_ value: Int) {
         let move: Move = (direction: .add, value: value)
         if shouldCommitMove(self, move) {
             board = board.hit(value)
@@ -50,14 +50,14 @@ class Player: Equatable {
         validateWin(self)
     }
     
-    func unhit(value: Int) {
+    func unhit(_ value: Int) {
         let move: Move = (direction: .subtract, value: value)
         if shouldCommitMove(self, move) {
             board = board.unhit(value)
         }
     }
     
-    func hasClosed(value: Int) -> Bool {
+    func hasClosed(_ value: Int) -> Bool {
         return board.isClosed(value)
     }
     
