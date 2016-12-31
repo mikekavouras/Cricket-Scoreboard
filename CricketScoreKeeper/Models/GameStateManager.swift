@@ -22,12 +22,12 @@ class GameStateManager {
         game.players.forEach { addPlayer($0) }
     }
     
-    func addPlayer(_ player: Player) {
+    private func addPlayer(_ player: Player) {
         player.shouldCommitMove = shouldCommitMoveHandler
         player.validateWin = checkWinValidator
     }
     
-    func checkWinValidator(_ player: Player) {
+    private func checkWinValidator(_ player: Player) {
         guard let otherPlayer = (game.players.filter { $0 != player }.first) else {
             return
         }
@@ -37,7 +37,7 @@ class GameStateManager {
         }
     }
     
-    func shouldCommitMoveHandler(_ player: Player, move: Move) -> Bool {
+    private func shouldCommitMoveHandler(_ player: Player, move: Move) -> Bool {
         if move.direction == .add {
             guard let otherPlayer = (game.players.filter { $0 != player }.first) else {
                 return false
@@ -51,16 +51,9 @@ class GameStateManager {
                 return true
             }
             
-            if player.hasClosed(move.value) && !otherPlayer.hasClosed(move.value) {
-                return true
-            }
-            
             return false
         } else {
-            if player.board.stateForPie(move.value) != .zero {
-                return true
-            }
-            return false
+            return player.board.stateForPie(move.value) != .zero
         }
     }
 }

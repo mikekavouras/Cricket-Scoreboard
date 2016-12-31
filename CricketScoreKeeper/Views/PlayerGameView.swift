@@ -8,19 +8,18 @@
 
 import UIKit
 
-class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
+class PlayerGameView: UIView, NibInitializable {
     
-    static let NibName = "PlayerGameView"
+    static var nibName: String = "PlayerGameView"
     
     @IBOutlet weak var nameTextField: UITextField!
-    
-    class func xibInstance() -> PlayerGameView {
-        return Bundle.main.loadNibNamed(NibName, owner: self, options: nil)![0] as! PlayerGameView
-    }
-    
     @IBOutlet var scoreButtons: [ScoreButton]!
     @IBOutlet weak var scoreLabel: UILabel!
+    
     weak var player: Player!
+    
+    
+    // MARK: - Life cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,37 +27,27 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
         scoreButtons.forEach { $0.delegate = self }
         nameTextField.delegate = self
     }
+    
+    
+    // MARK: - Actions
 
     @IBAction func scoreButtonTapped(_ button: ScoreButton) {
         player.hit(button.value)
+        
         guard let state = player.board.stateForPie(button.value) else { return }
         
         updateScoreButton(button, forState: state)
+        
         let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
-        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.15)
         UIView.animate(withDuration: 0.2) {
             button.backgroundColor = .darkGreen
         }
         
         if scoreChanged {
-            let label = UILabel(frame: CGRect.zero)
-            label.text = "+ \(button.value)"
-            label.frame = button.frame
-            label.frame.origin.y -= 60
-            label.textColor = UIColor.yellow
-            label.font = UIFont(name: "Chalkduster", size: 32)
-            label.textAlignment = .center
-            
-            addSubview(label)
-            
-            UIView.animate(withDuration: 1.2, delay: 0.2, options: .curveEaseOut, animations: {
-                label.frame.origin.y -= 100
-                label.alpha = 0.0
-            }) { done in
-                label.removeFromSuperview()
-            }
+            showScoreChangedUI(direction: .add, button: button)
         }
     }
     
@@ -66,44 +55,63 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
         button.setTitle(state.visual(), for: UIControlState())
     }
     
-    // MARK: Swipeable button delegate
+    fileprivate func showScoreChangedUI(direction: MoveDirection, button: UIButton) {
+        let goodEmoji = ["😎", "😝", "👍", "🙌", "💪", "✨", "🏅"]
+        let badEmoji = ["😫", "👎", "🙈", "😵"]
+        let emoji = direction == .add ? goodEmoji : badEmoji
+        
+        let label = UILabel(frame: CGRect.zero)
+        let randomIndex = Int(arc4random_uniform(UInt32(emoji.count)))
+        
+        addSubview(label)
+        label.textColor = UIColor.yellow
+        label.font = UIFont.systemFont(ofSize: 32.0)
+        label.textAlignment = .center
+        label.frame = button.frame
+        label.text = emoji[randomIndex]
+        
+        UIView.animate(withDuration: 1.2, delay: 0.1, options: .curveEaseOut, animations: {
+            label.frame.origin.y -= 100
+            label.alpha = 0.0
+        }) { done in
+            label.removeFromSuperview()
+        }
+    }
     
+}
+
+
+// MARK: - Swipeable button delegate
+
+extension PlayerGameView: SwipeableButtonDelegate {
+
     func handleSwipeForButton(_ button: SwipeableButton) {
         guard let button = button as? ScoreButton else { return }
+        
         player.unhit(button.value)
-        if let state = player.board.stateForPie(button.value) {
-            updateScoreButton(button, forState: state)
-        }
+        
+        guard let state = player.board.stateForPie(button.value) else { return }
+        
+        updateScoreButton(button, forState: state)
         
         let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
-        button.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+        button.backgroundColor = UIColor.negative
         UIView.animate(withDuration: 0.3) {
             button.backgroundColor = .darkGreen
         }
         
         if scoreChanged {
-            let label = UILabel(frame: CGRect.zero)
-            label.text = "- \(button.value)"
-            label.frame = button.frame
-            label.frame.origin.y -= 60
-            label.textColor = UIColor.red.withAlphaComponent(0.6)
-            label.font = UIFont(name: "Chalkduster", size: 32)
-            label.textAlignment = .center
-            
-            addSubview(label)
-            
-            UIView.animate(withDuration: 1.2, delay: 0.2, options: .curveEaseOut, animations: {
-                label.frame.origin.y -= 100
-                label.alpha = 0.0
-            }) { done in
-                label.removeFromSuperview()
-            }
+            showScoreChangedUI(direction: .subtract, button: button)
         }
     }
-    
-    // MARK: UITextFieldDelegate
+}
+
+
+// MARK: - UITextFieldDelegate
+
+extension PlayerGameView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

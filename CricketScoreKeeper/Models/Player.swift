@@ -33,7 +33,7 @@ class Player: Equatable {
     var validateWin: ((Player) -> Void)!
     
     class var gameView: PlayerGameView {
-        let view = PlayerGameView.xibInstance()
+        let view = PlayerGameView.initFromNib()
         return view
     }
     

@@ -23,6 +23,7 @@
 		8D718B7E1E1785A200D75B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D718B7D1E1785A200D75B67 /* Assets.xcassets */; };
 		8D718B811E1785AF00D75B67 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D718B801E1785AF00D75B67 /* Info.plist */; };
 		8D718B841E1785B400D75B67 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D718B831E1785B400D75B67 /* UIColor+Custom.swift */; };
+		8DF94E6D1E1828A100E1A108 /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF94E6C1E1828A100E1A108 /* NibInitializable.swift */; };
 		DA1933905A09C161F0757342 /* Pods_CricketScoreKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775F2FA8F4226D9F3EF0327A /* Pods_CricketScoreKeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		8D718B7D1E1785A200D75B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D718B801E1785AF00D75B67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D718B831E1785B400D75B67 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		8DF94E6C1E1828A100E1A108 /* NibInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInitializable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				8D718B791E17858700D75B67 /* ViewControllers */,
 				8D718B631E17856900D75B67 /* Models */,
 				8D718B6E1E17857E00D75B67 /* Views */,
+				8DF94E6B1E18289200E1A108 /* Protocols */,
 				8D718B7C1E1785A200D75B67 /* Assets */,
 				8D718B7F1E1785AF00D75B67 /* SupportingFiles */,
 				8D718B821E1785B400D75B67 /* Extensions */,
@@ -148,6 +151,14 @@
 				8D718B831E1785B400D75B67 /* UIColor+Custom.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8DF94E6B1E18289200E1A108 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8DF94E6C1E1828A100E1A108 /* NibInitializable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C89AC7C2102EB170AEC979B3 /* Pods */ = {
@@ -296,6 +307,7 @@
 				8D718B6D1E17856900D75B67 /* Player.swift in Sources */,
 				8D718B6C1E17856900D75B67 /* Pie.swift in Sources */,
 				8D680C151D247C6100B5067D /* AppDelegate.swift in Sources */,
+				8DF94E6D1E1828A100E1A108 /* NibInitializable.swift in Sources */,
 				8D718B841E1785B400D75B67 /* UIColor+Custom.swift in Sources */,
 				8D718B7B1E17858700D75B67 /* GameViewController.swift in Sources */,
 				8D718B741E17857E00D75B67 /* PlayerGameView.swift in Sources */,
