@@ -34,11 +34,31 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
         if let state = player.board.stateForPie(button.value) {
             updateScoreButton(button, forState: state)
         }
+        let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
-        button.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         UIView.animate(withDuration: 0.3) {
             button.backgroundColor = .darkGreen
+        }
+        
+        if scoreChanged {
+            let label = UILabel(frame: CGRect.zero)
+            label.text = "+ \(button.value)"
+            label.frame = button.frame
+            label.frame.origin.y -= 60
+            label.textColor = UIColor.yellow
+            label.font = UIFont(name: "Chalkduster", size: 32)
+            label.textAlignment = .center
+            
+            addSubview(label)
+            
+            UIView.animate(withDuration: 1.2, delay: 0.2, options: .curveEaseOut, animations: {
+                label.frame.origin.y -= 100
+                label.alpha = 0.0
+            }) { done in
+                label.removeFromSuperview()
+            }
         }
     }
     
@@ -54,11 +74,32 @@ class PlayerGameView: UIView, SwipeableButtonDelegate, UITextFieldDelegate {
         if let state = player.board.stateForPie(button.value) {
             updateScoreButton(button, forState: state)
         }
+        
+        let scoreChanged = scoreLabel.text! != "\(player.score)"
         scoreLabel.text = "\(player.score)"
         
-        button.backgroundColor = UIColor.red.withAlphaComponent(0.5)
+        button.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         UIView.animate(withDuration: 0.3) {
             button.backgroundColor = .darkGreen
+        }
+        
+        if scoreChanged {
+            let label = UILabel(frame: CGRect.zero)
+            label.text = "- \(button.value)"
+            label.frame = button.frame
+            label.frame.origin.y -= 60
+            label.textColor = UIColor.red.withAlphaComponent(0.6)
+            label.font = UIFont(name: "Chalkduster", size: 32)
+            label.textAlignment = .center
+            
+            addSubview(label)
+            
+            UIView.animate(withDuration: 1.2, delay: 0.2, options: .curveEaseOut, animations: {
+                label.frame.origin.y -= 100
+                label.alpha = 0.0
+            }) { done in
+                label.removeFromSuperview()
+            }
         }
     }
     

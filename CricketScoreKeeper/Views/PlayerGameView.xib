@@ -109,12 +109,6 @@
                         <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="YbK-ml-8el"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Wn-c5y">
-                    <rect key="frame" x="0.0" y="575" width="287" height="66"/>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-R4-c3x" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="130" width="287" height="66.5"/>
                     <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -134,16 +128,6 @@
                         <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="c5G-pj-YCX"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hK4-tE-OGP">
-                    <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="yPj-Dp-28F"/>
-                    </constraints>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-mj-den" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="56" width="287" height="66"/>
                     <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,6 +147,22 @@
                         <action selector="scoreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="goa-ck-naj"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-Wn-c5y">
+                    <rect key="frame" x="0.0" y="575" width="287" height="66"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Team Name" placeholder="Enter name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hK4-tE-OGP">
+                    <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="yPj-Dp-28F"/>
+                    </constraints>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.2200414037" green="0.51432291669999997" blue="0.22957812690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
