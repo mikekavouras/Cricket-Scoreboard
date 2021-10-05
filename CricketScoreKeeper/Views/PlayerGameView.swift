@@ -80,7 +80,7 @@ class PlayerGameView: UIView, NibInitializable {
         label.font = UIFont(name: "Chalkboard SE", size: 28.0)
         label.textAlignment = .center
         label.frame = scoreLabel.frame
-        label.frame.origin.y -= 4          .0
+        label.frame.origin.y -= 40
         label.text = "\(symbol) \(value)"
         
         UIView.animate(withDuration: 0.2, animations: {
