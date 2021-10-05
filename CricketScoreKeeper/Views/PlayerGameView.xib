@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +21,7 @@
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZj-P6-EeF">
                     <rect key="frame" x="0.0" y="40" width="287" height="541"/>
@@ -39,7 +38,7 @@
                                     <integer key="value" value="20"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -47,7 +46,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-R4-c3x" userLabel="19" customClass="ScoreButton" customModule="CricketScoreKeeper" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="95" width="287" height="67.5"/>
+                            <rect key="frame" x="0.0" y="95.5" width="287" height="67.5"/>
                             <color key="backgroundColor" red="0.20867645740509033" green="0.48235827684402466" blue="0.21900594234466553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
                             <state key="normal">
@@ -58,7 +57,7 @@
                                     <integer key="value" value="19"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -77,7 +76,7 @@
                                     <integer key="value" value="18"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -96,7 +95,7 @@
                                     <integer key="value" value="17"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -115,7 +114,7 @@
                                     <integer key="value" value="16"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -134,7 +133,7 @@
                                     <integer key="value" value="15"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -153,7 +152,7 @@
                                     <integer key="value" value="25"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="4"/>
+                                    <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -231,4 +230,27 @@
             <point key="canvasLocation" x="88.5" y="307.5"/>
         </view>
     </objects>
+    <designables>
+        <designable name="0fB-l3-JAf">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+        <designable name="2Qk-mj-den">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+        <designable name="DIK-Eg-O3k">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+        <designable name="YNQ-oS-2QT">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+        <designable name="bbp-ub-lD0">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+        <designable name="cEU-R4-c3x">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+        <designable name="jbv-yv-mNB">
+            <size key="intrinsicContentSize" width="30" height="58"/>
+        </designable>
+    </designables>
 </document>

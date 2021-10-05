@@ -1,12 +1,20 @@
 PODS:
-  - SnapKit (3.1.2)
+  - SnapKit (5.0.1)
+  - SwiftConfettiView (0.1.0)
 
 DEPENDENCIES:
-  - SnapKit (~> 3.1.2)
+  - SnapKit (~> 5.0.1)
+  - SwiftConfettiView
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - SwiftConfettiView
 
 SPEC CHECKSUMS:
-  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: adcef50e451d410a5d0cb22009fcff91ffcd6430
+PODFILE CHECKSUM: 4e80bdd3b7c2622e4540998571c4393a877c03b2
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.10.0

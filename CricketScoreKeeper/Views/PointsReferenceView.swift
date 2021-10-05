@@ -26,8 +26,7 @@ class PointsReferenceView: UIView {
         render([:])
     }
     
-    func render(_ state: [Int: (Bool, Bool)]) {
-        
+    func render(_ state: [Int: (player1: Bool, player2: Bool)]) {
         containerView.subviews.forEach { $0.removeFromSuperview() }
         
         // Spacer view
@@ -57,21 +56,18 @@ class PointsReferenceView: UIView {
         
         
         // Score labels
-        
-        let scoreLabels: [UILabel] = points.flatMap { point -> UILabel? in
+    
+        let scoreLabels: [UILabel] = points.compactMap { point -> UILabel? in
             guard let displayable = [20: "20", 19: "19", 18: "18", 17: "17", 16: "16", 15: "15", 25: "B"][point] else { return nil }
-            let display = "< \(displayable) >"
-            
+
             let label = UILabel(frame: .zero)
             label.textColor = .white
-            let text = NSMutableAttributedString(string: display)
+            label.text = displayable
             
-            let leftAlpha: CGFloat = state[point]?.0 == true ? 0.5 : 0
-            let rightAlpha: CGFloat = state[point]?.1 == true ? 0.5 : 0
-            
-            text.addAttribute(NSForegroundColorAttributeName, value: UIColor.white.withAlphaComponent(leftAlpha), range: NSMakeRange(0, 1))
-            text.addAttribute(NSForegroundColorAttributeName, value: UIColor.white.withAlphaComponent(rightAlpha), range: NSMakeRange(display.characters.count - 1, 1))
-            label.attributedText = text
+            if let player1Closed = state[point]?.player1,
+               let player2Closed = state[point]?.player2 {
+                label.alpha = player1Closed && player2Closed ? 0.4 : 1.0
+            }
 
             label.font = UIFont(name: "Chalkboard SE", size: 26)
             label.textAlignment = .center
@@ -81,7 +77,6 @@ class PointsReferenceView: UIView {
         // stack view
         
         let stackView = UIStackView(arrangedSubviews: scoreLabels)
-        stackView.backgroundColor = .blue
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 8.0

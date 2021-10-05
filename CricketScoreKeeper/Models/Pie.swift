@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func >(lhs: PieState, rhs: PieState) -> Bool {
     if lhs == rhs { return false }
@@ -56,16 +57,16 @@ enum PieState {
         }
     }
     
-    func visual() -> String {
+    func visualBase() -> String? {
         switch self {
         case .zero:
-            return ""
+            return nil
         case .one:
-            return "l"
+            return "slash"
         case .two:
-            return "ll"
+            return "ex"
         case .three:
-            return "lll"
+            return "circle"
         }
     }
 }
@@ -74,6 +75,10 @@ struct Pie {
     var state: PieState = .zero
     var points: Int = 0
     let value: Int
+    
+    var isClosed: Bool {
+        return state == .three
+    }
     
     init(value: Int) {
         self.value = value

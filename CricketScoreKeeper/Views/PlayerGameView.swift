@@ -46,20 +46,32 @@ class PlayerGameView: UIView, NibInitializable {
         let resolveColor: UIColor = isClosed ? UIColor.black.withAlphaComponent(0.15) : UIColor.darkGreen
         
         button.backgroundColor = darkColor
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .allowUserInteraction, animations: {
             button.backgroundColor = resolveColor
-        }
+        }, completion: nil)
         
         if scoreChanged {
-            showScoreChangedUI(direction: .add, button: button)
+            showScoreChangedUI(direction: .add, value: button.value)
+        }
+        
+        if nameTextField.isFirstResponder {
+            nameTextField.resignFirstResponder()
         }
     }
     
-    fileprivate func updateScoreButton(_ button: UIButton, forState state: PieState) {
-        button.setTitle(state.visual(), for: UIControlState())
+    fileprivate func updateScoreButton(_ button: ScoreButton, forState state: PieState) {
+        // Update pie state
+        if let imageBase = state.visualBase() {
+            let image = UIImage(named: "\(imageBase)-\(button.seed)")
+            button.setImage(image, for: UIControl.State())
+        } else {
+            button.setImage(nil, for: UIControl.State())
+        }
+        
+        
     }
     
-    fileprivate func showScoreChangedUI(direction: MoveDirection, button: ScoreButton) {
+    fileprivate func showScoreChangedUI(direction: MoveDirection, value: Int) {
         let label = UILabel(frame: CGRect.zero)
         let symbol = direction == .add ? "+" : "-"
         
@@ -68,8 +80,8 @@ class PlayerGameView: UIView, NibInitializable {
         label.font = UIFont(name: "Chalkboard SE", size: 28.0)
         label.textAlignment = .center
         label.frame = scoreLabel.frame
-        label.frame.origin.y -= 60
-        label.text = "\(symbol) \(button.value)"
+        label.frame.origin.y -= 4          .0
+        label.text = "\(symbol) \(value)"
         
         UIView.animate(withDuration: 0.2, animations: {
             self.scoreLabel.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -80,8 +92,8 @@ class PlayerGameView: UIView, NibInitializable {
         }
         
         UIView.animate(withDuration: 1.2, animations: {
-//            self.scoreLabel.transform = CGAffineTransform()
             label.frame.origin.y -= 100
+            label.transform = label.transform.scaledBy(x: 3.0, y: 3.0)
             label.alpha = 0.0
         }) { done in
             label.removeFromSuperview()
@@ -94,7 +106,6 @@ class PlayerGameView: UIView, NibInitializable {
 // MARK: - Swipeable button delegate
 
 extension PlayerGameView: SwipeableButtonDelegate {
-
     func handleSwipeForButton(_ button: SwipeableButton) {
         guard let button = button as? ScoreButton else { return }
         
@@ -116,7 +127,7 @@ extension PlayerGameView: SwipeableButtonDelegate {
         }
         
         if scoreChanged {
-            showScoreChangedUI(direction: .subtract, button: button)
+            showScoreChangedUI(direction: .subtract, value: button.value)
         }
     }
 }
@@ -125,10 +136,12 @@ extension PlayerGameView: SwipeableButtonDelegate {
 // MARK: - UITextFieldDelegate
 
 extension PlayerGameView: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        player.name = textField.text!
+    }
 }

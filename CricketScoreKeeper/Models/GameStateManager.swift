@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GameStateManagerDelegate: class {
+protocol GameStateManagerDelegate: AnyObject {
     func gameStateDidChange(manager: GameStateManager)
 }
 
@@ -35,9 +35,7 @@ class GameStateManager {
         let pies = (player1.board.pies, player2.board.pies)
         var value: [Int: (Bool, Bool)] = [:]
         for (index, pie) in pies.0.enumerated() {
-            let leftIsGreater = pie.state > pies.1[index].state
-            let rightIsGreater = pie.state < pies.1[index].state
-            value[pie.value] = (leftIsGreater, rightIsGreater)
+            value[pie.value] = (pies.0[index].isClosed, pies.1[index].isClosed)
         }
         
         return value

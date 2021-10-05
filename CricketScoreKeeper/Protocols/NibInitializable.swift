@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol NibInitializable: class {
+public protocol NibInitializable: AnyObject {
     static var nibName: String { get }
 }
 

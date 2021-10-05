@@ -15,7 +15,7 @@ struct Board {
     
     let pies: [Pie]
     var isFull: Bool {
-        return pies.filter { $0.state != .three }.count == 0
+        return pies.first(where: { $0.state != .three }) == nil
     }
 
     init(pies: [Pie]? = nil) {

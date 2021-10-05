@@ -13,13 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
         startNewGame()
+        
+        UIApplication.shared.isIdleTimerDisabled = true
         
         return true
     }
@@ -38,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewController.shouldBeginNewGameHandler = { [weak self] in
             self?.startNewGame()
         }
-//        stateManager.onGameEndedListener = viewController.displayWinner
+        stateManager.onGameEndedListener = viewController.displayWinner
         
         return viewController
     }

@@ -19,7 +19,7 @@ extension UIColor {
     }
     
     class var negative: UIColor {
-        return UIColor(red: 77/255.0, green: 108/255.0, blue: 49/255.0, alpha: 1.0)
+        return UIColor.white.withAlphaComponent(0.1)
     }
     
 }

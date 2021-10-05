@@ -19,7 +19,7 @@ func ==(lhs: Player, rhs: Player) -> Bool {
     return lhs.uid == rhs.uid
 }
 
-protocol PlayerDelegate: class {
+protocol PlayerDelegate: AnyObject {
     func playerShouldCommitMove(_ player: Player, move: Move) -> Bool
     func playerDidCommitMove(_ player: Player, move: Move)
 }
@@ -35,10 +35,11 @@ class Player: Equatable {
     var board = Board()
     var score: Int { return board.score() }
     var validateWin: ((Player) -> Void)!
+    var name: String = ""
     
     weak var delegate: PlayerDelegate?
     
-    class var gameView: PlayerGameView {
+    static func newGameView() -> PlayerGameView {
         let view = PlayerGameView.initFromNib()
         return view
     }

@@ -8,9 +8,9 @@
 
 import UIKit
 import SnapKit
+import SwiftConfettiView
 
 class GameViewController: UIViewController {
-    
     private let stateManager: GameStateManager!
     var shouldBeginNewGameHandler: (() -> Void)?
     fileprivate let scoreReferenceView = PointsReferenceView(frame: .zero)
@@ -33,10 +33,65 @@ class GameViewController: UIViewController {
     }
     
     func displayWinner(_ player: Player) {
-        print("player wins!")
+        let containerView = UIView()
+        view.addSubview(containerView)
+        
+        containerView.alpha = 0
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        let overlayView = UIView()
+        containerView.addSubview(overlayView)
+        
+        overlayView.backgroundColor = .black.withAlphaComponent(0.7)
+        overlayView.translatesAutoresizingMaskIntoConstraints = false
+        overlayView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        overlayView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        overlayView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        overlayView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        
+        let confettiView = SwiftConfettiView(frame: self.view.bounds)
+        confettiView.intensity = 0.8
+        containerView.addSubview(confettiView)
+        confettiView.bounds = view.bounds
+        confettiView.startConfetti()
+        
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        
+        let playerNameTextField = UITextField()
+        playerNameTextField.adjustsFontSizeToFitWidth = true
+        playerNameTextField.text = player.name
+        playerNameTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 50)
+        playerNameTextField.textColor = .white
+        playerNameTextField.textAlignment = .center
+        stackView.addArrangedSubview(playerNameTextField)
+        
+        let winsTextField = UITextField()
+        winsTextField.adjustsFontSizeToFitWidth = true
+        winsTextField.text = "wins!"
+        winsTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
+        winsTextField.textColor = .white
+        winsTextField.textAlignment = .center
+        stackView.addArrangedSubview(winsTextField)
+        
+        containerView.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        
+        UIView.animate(withDuration: 1.2) {
+            containerView.alpha = 1.0
+        }
     }
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
@@ -52,8 +107,8 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func buildPlayerViews() {
-        let player1GameView = PlayerGameView.initFromNib()
-        let player2GameView = PlayerGameView.initFromNib()
+        let player1GameView = Player.newGameView()
+        let player2GameView = Player.newGameView()
         
         view.addSubview(player1GameView)
         view.addSubview(player2GameView)
@@ -62,21 +117,21 @@ class GameViewController: UIViewController {
         scoreReferenceView.snp.makeConstraints { make in
             make.width.equalTo(90)
             make.centerX.equalTo(view)
-            make.top.equalTo(view).offset(28.0)
-            make.bottom.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         player1GameView.snp.makeConstraints { make in
             make.left.equalTo(view).offset(16.0)
-            make.top.equalTo(view).offset(28.0)
-            make.bottom.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.right.equalTo(scoreReferenceView.snp.left)
         }
         
         player2GameView.snp.makeConstraints { make in
             make.right.equalTo(view).offset(-16.0)
-            make.top.equalTo(view).offset(28.0)
-            make.bottom.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.equalTo(scoreReferenceView.snp.right)
         }
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SwipeableButtonDelegate: class {
+protocol SwipeableButtonDelegate: AnyObject {
     func handleSwipeForButton(_ button: SwipeableButton)
 }
 
@@ -25,7 +25,7 @@ class SwipeableButton: UIButton {
         addGestureRecognizer(swipeGesture)
     }
     
-    func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
+    @objc func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
         print("override to handle swipe gesture")
     }
     
@@ -35,6 +35,10 @@ class SwipeableButton: UIButton {
 class ScoreButton: SwipeableButton {
     
     @IBInspectable var value: Int = 0
+    
+    lazy var seed: Int = {
+        return Int.random(in: 1...4)
+    }()
     
     @IBInspectable
     var cornerRadius: CGFloat = 0 {
