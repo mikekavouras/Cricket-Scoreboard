@@ -37,7 +37,7 @@ class ScoreButton: SwipeableButton {
     @IBInspectable var value: Int = 0
     
     lazy var seed: Int = {
-        return Int.random(in: 1...4)
+        return Int.random(in: 1...7)
     }()
     
     @IBInspectable

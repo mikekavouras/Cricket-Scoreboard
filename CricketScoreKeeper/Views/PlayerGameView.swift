@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class PlayerGameView: UIView, NibInitializable {
     
@@ -52,11 +53,19 @@ class PlayerGameView: UIView, NibInitializable {
         
         if scoreChanged {
             showScoreChangedUI(direction: .add, value: button.value)
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+
+        }
+        
+        if isClosed && !scoreChanged {
+            UIImpactFeedbackGenerator(style: .rigid ).impactOccurred()
         }
         
         if nameTextField.isFirstResponder {
             nameTextField.resignFirstResponder()
         }
+        
+        
     }
     
     fileprivate func updateScoreButton(_ button: ScoreButton, forState state: PieState) {
@@ -93,7 +102,7 @@ class PlayerGameView: UIView, NibInitializable {
         
         UIView.animate(withDuration: 1.2, animations: {
             label.frame.origin.y -= 100
-            label.transform = label.transform.scaledBy(x: 3.0, y: 3.0)
+            label.transform = label.transform.scaledBy(x: 2.4, y: 2.4)
             label.alpha = 0.0
         }) { done in
             label.removeFromSuperview()

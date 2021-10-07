@@ -53,7 +53,6 @@ class GameViewController: UIViewController {
         overlayView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         overlayView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         confettiView.intensity = 0.8
         containerView.addSubview(confettiView)
@@ -63,32 +62,54 @@ class GameViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         
-        let playerNameTextField = UITextField()
-        playerNameTextField.adjustsFontSizeToFitWidth = true
-        playerNameTextField.text = player.name
-        playerNameTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 50)
-        playerNameTextField.textColor = .white
-        playerNameTextField.textAlignment = .center
-        stackView.addArrangedSubview(playerNameTextField)
+        let playerNameLabel = UILabel()
+        playerNameLabel.adjustsFontSizeToFitWidth = true
+        playerNameLabel.text = player.name
+        playerNameLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 50)
+        playerNameLabel.textColor = .white
+        playerNameLabel.textAlignment = .center
+        stackView.addArrangedSubview(playerNameLabel)
         
-        let winsTextField = UITextField()
-        winsTextField.adjustsFontSizeToFitWidth = true
-        winsTextField.text = "wins!"
-        winsTextField.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
-        winsTextField.textColor = .white
-        winsTextField.textAlignment = .center
-        stackView.addArrangedSubview(winsTextField)
+        let winsLabel = UILabel()
+        winsLabel.adjustsFontSizeToFitWidth = true
+        winsLabel.text = "wins!"
+        winsLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 34)
+        winsLabel.textColor = .white
+        winsLabel.textAlignment = .center
         
+        stackView.addArrangedSubview(winsLabel)
         containerView.addSubview(stackView)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -80).isActive = true
+        
+        let newGameButton = UIButton(type: .custom)
+        newGameButton.alpha = 0.0
+        newGameButton.setTitle("Start new game", for: .normal)
+        newGameButton.setTitleColor(.white, for: .normal)
+        newGameButton.transform = newGameButton.transform.scaledBy(x: 0.7, y: 0.7)
+        newGameButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 20)
+        newGameButton.addTarget(self, action: #selector(newGameButtonTapped), for: .touchUpInside)
+        containerView.addSubview(newGameButton)
+        
+        newGameButton.translatesAutoresizingMaskIntoConstraints = false
+        newGameButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        newGameButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 100).isActive = true
+        newGameButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        newGameButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        newGameButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         UIView.animate(withDuration: 1.2) {
             containerView.alpha = 1.0
+        } completion: { _ in
+            UIView.animate(withDuration: 0.5, delay: 0.4, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.9, options: .curveEaseOut, animations: {
+                newGameButton.alpha = 1.0
+                newGameButton.transform = .identity
+            }, completion: nil)
         }
+
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -115,7 +136,7 @@ class GameViewController: UIViewController {
         view.addSubview(scoreReferenceView)
         
         scoreReferenceView.snp.makeConstraints { make in
-            make.width.equalTo(90)
+            make.width.equalTo(80)
             make.centerX.equalTo(view)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -142,10 +163,13 @@ class GameViewController: UIViewController {
         player2GameView.player = player2
     }
     
+    @objc func newGameButtonTapped() {
+        self.shouldBeginNewGameHandler?()
+    }
+    
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
-    
 }
 
 
