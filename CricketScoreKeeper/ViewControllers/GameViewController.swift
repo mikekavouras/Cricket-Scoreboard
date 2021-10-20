@@ -87,7 +87,7 @@ class GameViewController: UIViewController {
         
         let newGameButton = UIButton(type: .custom)
         newGameButton.alpha = 0.0
-        newGameButton.setTitle("Start new game", for: .normal)
+        newGameButton.setTitle("New Game", for: .normal)
         newGameButton.setTitleColor(.white, for: .normal)
         newGameButton.transform = newGameButton.transform.scaledBy(x: 0.7, y: 0.7)
         newGameButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 20)

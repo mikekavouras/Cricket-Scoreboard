@@ -9,7 +9,6 @@
 import Foundation
 
 class Game {
-    
     let players: [Player]
     
     init(players: Player...) {

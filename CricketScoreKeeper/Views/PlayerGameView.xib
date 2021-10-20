@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <accessibilityOverrides dynamicTypePreference="4"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -204,6 +205,7 @@
             </subviews>
             <color key="backgroundColor" red="0.2200414037" green="0.51432291669999997" blue="0.22957812690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Hqa-Wn-c5y" secondAttribute="trailing" id="23j-7G-8k7"/>
                 <constraint firstItem="Hqa-Wn-c5y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Gr-f4-kgO"/>
                 <constraint firstAttribute="trailing" secondItem="sZj-P6-EeF" secondAttribute="trailing" id="3MB-xk-Dmg"/>
                 <constraint firstAttribute="bottom" secondItem="Hqa-Wn-c5y" secondAttribute="bottom" id="EoQ-mv-N5g"/>
@@ -213,7 +215,6 @@
                 <constraint firstItem="Hqa-Wn-c5y" firstAttribute="top" secondItem="sZj-P6-EeF" secondAttribute="bottom" id="h1J-sF-Suj"/>
                 <constraint firstAttribute="trailing" secondItem="hK4-tE-OGP" secondAttribute="trailing" id="hhQ-b4-BZ8"/>
                 <constraint firstItem="sZj-P6-EeF" firstAttribute="top" secondItem="hK4-tE-OGP" secondAttribute="bottom" id="osJ-g0-WfL"/>
-                <constraint firstAttribute="trailing" secondItem="Hqa-Wn-c5y" secondAttribute="trailing" id="wvU-6K-Jyl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
