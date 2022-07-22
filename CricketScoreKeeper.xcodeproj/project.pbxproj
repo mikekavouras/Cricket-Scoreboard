@@ -21,6 +21,7 @@
 		8D718B7B1E17858700D75B67 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D718B7A1E17858700D75B67 /* GameViewController.swift */; };
 		8D718B7E1E1785A200D75B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D718B7D1E1785A200D75B67 /* Assets.xcassets */; };
 		8D718B841E1785B400D75B67 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D718B831E1785B400D75B67 /* UIColor+Custom.swift */; };
+		8DB57ED4272072A400901ABF /* PlayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB57ED3272072A400901ABF /* PlayerSelectionViewController.swift */; };
 		8DF94E6D1E1828A100E1A108 /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF94E6C1E1828A100E1A108 /* NibInitializable.swift */; };
 		DA1933905A09C161F0757342 /* Pods_CricketScoreKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775F2FA8F4226D9F3EF0327A /* Pods_CricketScoreKeeper.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		8D718B7D1E1785A200D75B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D718B801E1785AF00D75B67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D718B831E1785B400D75B67 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		8DB57ED3272072A400901ABF /* PlayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectionViewController.swift; sourceTree = "<group>"; };
 		8DF94E6C1E1828A100E1A108 /* NibInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInitializable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8D718B7A1E17858700D75B67 /* GameViewController.swift */,
+				8DB57ED3272072A400901ABF /* PlayerSelectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D718B6D1E17856900D75B67 /* Player.swift in Sources */,
+				8DB57ED4272072A400901ABF /* PlayerSelectionViewController.swift in Sources */,
 				8D718B6C1E17856900D75B67 /* Pie.swift in Sources */,
 				8D680C151D247C6100B5067D /* AppDelegate.swift in Sources */,
 				8DF94E6D1E1828A100E1A108 /* NibInitializable.swift in Sources */,
@@ -368,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -436,7 +440,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A56D86G827;
 				INFOPLIST_FILE = "$(SRCROOT)/CricketScoreKeeper/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.CricketScoreKeeper;
@@ -455,7 +459,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A56D86G827;
 				INFOPLIST_FILE = "$(SRCROOT)/CricketScoreKeeper/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouras.CricketScoreKeeper;

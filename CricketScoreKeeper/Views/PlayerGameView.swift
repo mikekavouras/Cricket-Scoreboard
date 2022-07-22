@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class PlayerGameView: UIView, NibInitializable {
-    
     static var nibName: String = "PlayerGameView"
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -19,13 +18,14 @@ class PlayerGameView: UIView, NibInitializable {
     
     weak var player: Player!
     
-    
     // MARK: - Life cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        scoreButtons.forEach { $0.delegate = self }
+        scoreButtons.forEach {
+            $0.delegate = self
+        }
         nameTextField.delegate = self
     }
     
@@ -64,20 +64,15 @@ class PlayerGameView: UIView, NibInitializable {
         if nameTextField.isFirstResponder {
             nameTextField.resignFirstResponder()
         }
-        
-        
     }
     
     fileprivate func updateScoreButton(_ button: ScoreButton, forState state: PieState) {
-        // Update pie state
         if let imageBase = state.visualBase() {
             let image = UIImage(named: "\(imageBase)-\(button.seed)")
             button.setImage(image, for: UIControl.State())
         } else {
             button.setImage(nil, for: UIControl.State())
         }
-        
-        
     }
     
     fileprivate func showScoreChangedUI(direction: MoveDirection, value: Int) {
@@ -108,20 +103,16 @@ class PlayerGameView: UIView, NibInitializable {
             label.removeFromSuperview()
         }
     }
-    
 }
 
 
-// MARK: - Swipeable button delegate
+// MARK: - Score button delegate
 
-extension PlayerGameView: SwipeableButtonDelegate {
-    func handleSwipeForButton(_ button: SwipeableButton) {
-        guard let button = button as? ScoreButton else { return }
-        
+extension PlayerGameView: ScoreButtonDelegate {
+    func handleUndoActionForButton(_ button: ScoreButton) {
         player.unhit(button.value)
         
         guard let state = player.board.stateForPie(button.value) else { return }
-        
         updateScoreButton(button, forState: state)
         
         let scoreChanged = scoreLabel.text! != "\(player.score)"
@@ -130,14 +121,18 @@ extension PlayerGameView: SwipeableButtonDelegate {
         let isClosed = player.hasClosed(button.value)
         let resolveColor: UIColor = isClosed ? UIColor.black.withAlphaComponent(0.15) : UIColor.darkGreen
         
+        if scoreChanged {
+            showScoreChangedUI(direction: .subtract, value: button.value)
+        }
+        
         button.backgroundColor = UIColor.negative
         UIView.animate(withDuration: 0.3) {
             button.backgroundColor = resolveColor
         }
-        
-        if scoreChanged {
-            showScoreChangedUI(direction: .subtract, value: button.value)
-        }
+    }
+    
+    func handleClearActionForButton(_ button: ScoreButton) {
+        print("handling in PlayerGameView")
     }
 }
 

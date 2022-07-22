@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
+        window?.backgroundColor = UIColor.black
         window?.makeKeyAndVisible()
         
         startNewGame()
@@ -30,16 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func newGameViewController() -> UIViewController {
-        let player1 = Player()
-        let player2 = Player()
-        let game = Game(players: player1, player2)
-        
-        let stateManager = GameStateManager(game: game)
-        let viewController = GameViewController(stateManager: stateManager)
+        let viewController = GameViewController()
         viewController.shouldBeginNewGameHandler = { [weak self] in
             self?.startNewGame()
         }
-        stateManager.onGameEndedListener = viewController.displayWinner
         
         return viewController
     }

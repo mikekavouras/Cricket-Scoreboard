@@ -11,14 +11,13 @@ import SnapKit
 import SwiftConfettiView
 
 class GameViewController: UIViewController {
-    private let stateManager: GameStateManager!
+    private var stateManager: GameStateManager!
     var shouldBeginNewGameHandler: (() -> Void)?
     fileprivate let scoreReferenceView = PointsReferenceView(frame: .zero)
+    var didSelectedNumberOfPlayers = false
     
-    init(stateManager: GameStateManager) {
-        self.stateManager = stateManager
+    init() {
         super.init(nibName: nil, bundle: nil)
-        stateManager.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,9 +26,19 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = UIColor.feltGreen
-        buildPlayerViews()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if !didSelectedNumberOfPlayers {
+            let viewController = PlayerSelectionViewController()
+            viewController.delegate = self
+            viewController.modalPresentationStyle = .fullScreen
+            present(viewController, animated: true, completion: nil)
+        }
     }
     
     func displayWinner(_ player: Player) {
@@ -128,39 +137,88 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func buildPlayerViews() {
-        let player1GameView = Player.newGameView()
-        let player2GameView = Player.newGameView()
-        
-        view.addSubview(player1GameView)
-        view.addSubview(player2GameView)
+        let players = stateManager.game.players
         view.addSubview(scoreReferenceView)
-        
-        scoreReferenceView.snp.makeConstraints { make in
-            make.width.equalTo(80)
-            make.centerX.equalTo(view)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+
+        if players.count == 2 {
+            scoreReferenceView.translatesAutoresizingMaskIntoConstraints = false
+            scoreReferenceView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            scoreReferenceView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            scoreReferenceView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            scoreReferenceView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            
+            for (idx, player) in players.enumerated() {
+                let gameView = Player.newGameView()
+                gameView.player = player
+                
+                view.addSubview(gameView)
+                gameView.translatesAutoresizingMaskIntoConstraints = false
+                gameView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+                gameView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+                
+                if idx == 0 {
+                    gameView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0).isActive = true
+                    gameView.trailingAnchor.constraint(equalTo: scoreReferenceView.leadingAnchor).isActive = true
+                } else {
+                    gameView.leadingAnchor.constraint(equalTo: scoreReferenceView.trailingAnchor).isActive = true
+                    gameView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16.0).isActive = true
+                }
+            }
+        } else {
+            scoreReferenceView.translatesAutoresizingMaskIntoConstraints = false
+            scoreReferenceView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            scoreReferenceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            scoreReferenceView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            scoreReferenceView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+            let scrollView = UIScrollView()
+            scrollView.showsHorizontalScrollIndicator = false
+            view.addSubview(scrollView)
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
+            scrollView.leadingAnchor.constraint(equalTo: scoreReferenceView.trailingAnchor).isActive = true
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+            let contentView = UIView()
+            scrollView.addSubview(contentView)
+            contentView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+
+            var gameViews: [UIView] = []
+            var gameViewWidth = 134.0
+            let screenWidth = UIScreen.main.bounds.size.width
+            if players.count > 2 && screenWidth > 500.0 {
+                let gameViewPadding = 16.0
+                gameViewWidth = (screenWidth - 80.0 - (gameViewPadding * Double(players.count))) / (Double(players.count))
+            }
+            for (idx, player) in players.enumerated() {
+                let gameView = Player.newGameView()
+                gameView.player = player
+                
+                contentView.addSubview(gameView)
+                gameView.translatesAutoresizingMaskIntoConstraints = false
+                gameView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+                gameView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+                gameView.widthAnchor.constraint(equalToConstant: gameViewWidth).isActive = true
+                
+                if idx == 0 {
+                    gameView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+                } else {
+                    gameView.leadingAnchor.constraint(equalTo: gameViews[idx - 1].trailingAnchor, constant: 16.0).isActive = true
+                }
+                
+                if idx == players.count - 1 {
+                    gameView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0).isActive = true
+                }
+                
+                gameViews.append(gameView)
+            }
         }
-        
-        player1GameView.snp.makeConstraints { make in
-            make.left.equalTo(view).offset(16.0)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            make.right.equalTo(scoreReferenceView.snp.left)
-        }
-        
-        player2GameView.snp.makeConstraints { make in
-            make.right.equalTo(view).offset(-16.0)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            make.left.equalTo(scoreReferenceView.snp.right)
-        }
-        
-        guard let player1 = stateManager.game.players.first,
-            let player2 = stateManager.game.players.last else { return }
-        
-        player1GameView.player = player1
-        player2GameView.player = player2
     }
     
     @objc func newGameButtonTapped() {
@@ -178,5 +236,24 @@ class GameViewController: UIViewController {
 extension GameViewController: GameStateManagerDelegate {
     func gameStateDidChange(manager: GameStateManager) {
         scoreReferenceView.render(manager.competitivePieStates)
+    }
+}
+
+extension GameViewController: PlayerSelectionViewControllerDelegate {
+    func didSelectNumberOfPlayers(_ numberOfPlayers: Int) {
+        didSelectedNumberOfPlayers = true
+        
+        // setup game
+        let players = (0..<numberOfPlayers).map { _ in Player() }
+        let game = Game(players: players)
+        
+        let stateManager = GameStateManager(game: game)
+        stateManager.onGameEndedListener = displayWinner
+        self.stateManager = stateManager
+        stateManager.delegate = self
+        
+        buildPlayerViews()
+        
+        dismiss(animated: true, completion: nil)
     }
 }
